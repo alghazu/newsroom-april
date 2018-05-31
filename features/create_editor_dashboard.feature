@@ -25,7 +25,7 @@ Scenario: Editor can approve an article and it will be published
   And I should not see "The awsome article"
   When I visit the editor dashboard page
   And I should see "The awesome article" in "Unpublished Articles"
-  And I should not see "A published article"
+  And I should not see "A published article" in "Unpublished Articles"
   And I click "Approve Article"
   Then I should not see "The awesome article"
   But when I am on the landing page

@@ -1,6 +1,6 @@
 en:
   navbar:
-    signed_in: 'Signed in as: '
+    signed_in: 'Signed in as:'
     dashboard: 'Dashboard'
     home: 'Home'
     create: 'Create Article'

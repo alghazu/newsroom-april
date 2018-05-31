@@ -19,3 +19,8 @@ end
 Given("I should be redirected to login page") do
   expect(page).to have_current_path(new_user_session_path(locale: 'en'))
 end
+
+Then("I should not see {string} in {string}") do |expected_text, css_section|
+  css_section = '#' + css_section.downcase.split.join('-')
+  expect(page.find(css_section)).to have_no_content expected_text
+end

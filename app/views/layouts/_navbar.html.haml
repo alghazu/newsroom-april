@@ -1,5 +1,5 @@
 - if user_signed_in?
-  = t('navbar.signed_in') + "#{current_user.role.capitalize} (#{current_user.email}) |"
+  = "#{t('navbar.signed_in')} #{current_user.role.capitalize} (#{current_user.email}) |"
   = link_to(t('navbar.home'), root_path) + " |"
   = link_to(t('navbar.dashboard'), dashboard_path) + " |" if current_user.role == 'editor'
   = link_to(t('navbar.create'), new_article_path) + " |" if policy(Article).new?

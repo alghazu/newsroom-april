@@ -1,6 +1,6 @@
 sv:
   navbar:
-    signed_in: 'Inloggad som: '
+    signed_in: 'Inloggad som:'
     dashboard: 'Instrumentpanelen'
     home: 'Hem'
     create: 'Ny Artikel'

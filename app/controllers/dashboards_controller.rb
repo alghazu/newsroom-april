@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
   def approve_article
     article = Article.find(params[:format])
     article.update(published: true)
-    render 'dashboard'
+    render 'editor_dashboard'
   end
 
   def approve_comment
