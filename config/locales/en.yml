@@ -1,16 +1,21 @@
 en:
   navbar:
+    signed_in: 'Signed in as: '
+    dashboard: 'Dashboard'
+    home: 'Home'
     create: 'Create Article'
     sign_up: 'Sign Up'
     sign_in: 'Sign In'
     sign_out: 'Sign Out'
     language_en: 'English'
     language_sv: 'Svenska'
+
   categories:
     all_categories: 'All'
 
   site_info:
     site_title: 'News Room'
+
   article:
     headline: 'Headline'
     content: 'Content'
@@ -20,9 +25,12 @@ en:
     delete_link: 'Delete'
     new_page_title: 'Create New Article'
     back_link: 'Back'
+    approval: 'Approve Article'
+
   comment:
     comment_content: 'Comment'
     submit: 'Submit Comment'
+    approval: 'Approve Comment'
 
   flash:
     comment:
@@ -35,3 +43,12 @@ en:
       delete: 'Article was successfully deleted!'
     pundit:
       not_authorized: 'You are not authorized to perform this action!'
+
+  dashboard:
+    editor_dashboard: "Editor's Dashboard"
+    unpublished_article: 'Unpublished Articles'
+    unpublished_comment: 'Unpublished Comments'
+    written_by: 'Written by: '
+    comment: 'Comment: '
+    comment_by: 'Comment by: '
+    on_article: 'On article: '

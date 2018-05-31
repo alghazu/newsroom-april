@@ -1,11 +1,11 @@
 = form_with model: @article , local: true do |form|
   = form.label t('article.headline')
   %br
-  = form.text_field :headline, placeholder: t('article.headline')
+  = form.text_area :headline, placeholder: t('article.headline')
   %br
   = form.label t('article.content')
   %br
-  = form.text_field :content, placeholder: t('article.content')
+  = form.text_area :content, placeholder: t('article.content')
   %br
   = form.collection_select :category_id, @categories, :id, :name
   %br
