@@ -9,10 +9,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments.where(published:true)
-    if @article.published== false && current_user != @article.user
-      flash[:notice] = t('flash.article.in_process')
-      redirect_to root_path
-    end
+    authorize @article
   end
 
   def new
@@ -26,7 +23,7 @@ class ArticlesController < ApplicationController
     @article.published = true if @article.user.editor?
     if @article.save
       flash_for_articles(@article.user)
-      redirect_to root_path
+      redirect_to article_path(@article)
     else
       flash[:alert] = @article.errors.full_messages.first
       render 'new'
@@ -58,6 +55,12 @@ class ArticlesController < ApplicationController
       flash[:alert] = @article.errors.full_messages.first
     end
     redirect_to root_path
+  end
+
+  def approve
+    article = Article.find(params[:article_id])
+    article.update(published: true)
+    redirect_to dashboards_editor_path
   end
 
   private

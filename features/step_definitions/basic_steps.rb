@@ -69,5 +69,5 @@ Given("we have the following comments") do |table|
 end
 
 When("I visit the editor dashboard page") do
-  visit dashboard_path
+  visit dashboards_editor_path
 end

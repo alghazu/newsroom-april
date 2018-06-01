@@ -1,4 +1,7 @@
 class ArticlePolicy < ApplicationPolicy
+  def show?
+    record.published || user == record.user || user.editor?
+  end
 
   def new?
     user.editor? || user.journalist?
