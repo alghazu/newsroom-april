@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
   end
 
   def approve
+    authorize Article
     article = Article.find(params[:article_id])
     article.update(published: true)
     redirect_to dashboards_editor_path

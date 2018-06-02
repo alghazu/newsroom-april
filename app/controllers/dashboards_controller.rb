@@ -3,9 +3,4 @@ class DashboardsController < ApplicationController
     @articles = Article.where(published: false)
     @comments = Comment.where(published: false)
   end
-
-
-
-
-
 end

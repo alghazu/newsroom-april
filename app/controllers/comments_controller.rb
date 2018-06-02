@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def approve
+    authorize Article
     comment = Comment.find(params[:comment_id])
     comment.update(published: true)
     redirect_to dashboards_editor_path
