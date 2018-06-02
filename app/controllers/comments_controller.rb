@@ -11,11 +11,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if current_user.editor?
-      comment = Comment.find(params[:id])
-      comment.update(published: true)
-      redirect_to editors_path
-    end
+    comment = Comment.find(params[:id])
+    authorize comment
+    comment.update(published: true)
+    redirect_to editors_path
   end
 
   private

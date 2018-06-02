@@ -22,8 +22,4 @@ class ArticlePolicy < ApplicationPolicy
   def destroy?
     user.editor?
   end
-
-  def approve?
-    user.editor?
-  end
 end
