@@ -36,14 +36,20 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
-    if @article.update(article_params)
-      @article.update(published: false) if current_user.journalist?
-      flash_for_articles(current_user)
-      redirect_to article_path(@article)
+    if params[:approve] && current_user.editor?
+      article = Article.find(params[:id])
+      article.update(published: true)
+      redirect_to editors_path
     else
-      flash[:alert] = @article.errors.full_messages.first
-      render 'edit'
+      @article = Article.find(params[:id])
+      if @article.update(article_params)
+        @article.update(published: false) if current_user.journalist?
+        flash_for_articles(current_user)
+        redirect_to article_path(@article)
+      else
+        flash[:alert] = @article.errors.full_messages.first
+        render 'edit'
+      end
     end
   end
 
@@ -55,13 +61,6 @@ class ArticlesController < ApplicationController
       flash[:alert] = @article.errors.full_messages.first
     end
     redirect_to root_path
-  end
-
-  def approve
-    authorize Article
-    article = Article.find(params[:article_id])
-    article.update(published: true)
-    redirect_to dashboards_editor_path
   end
 
   private

@@ -7,7 +7,7 @@
       %p
         = link_to article.headline, article_path(article)
         |
-        = link_to t('article.approval'), article_approve_path(article), method: :patch
+        = link_to t('article.approval'), article_path(article, approve: true ), method: :patch
         |
         = link_to t('article.edit_link'), edit_article_path(article)
         |
@@ -27,7 +27,7 @@
         = t('dashboard.comment')
         = "\"#{comment.content}\""
         |
-        = link_to t('comment.approval'), article_comment_approve_path(comment.article,comment), method: :patch
+        = link_to t('comment.approval'), article_comment_path(comment.article,comment), method: :patch
         |
       %p
         = t('dashboard.comment_by')

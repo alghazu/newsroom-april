@@ -10,11 +10,12 @@ class CommentsController < ApplicationController
     redirect_to article_path(article_params[:article_id])
   end
 
-  def approve
-    authorize Article
-    comment = Comment.find(params[:comment_id])
-    comment.update(published: true)
-    redirect_to dashboards_editor_path
+  def update
+    if current_user.editor?
+      comment = Comment.find(params[:id])
+      comment.update(published: true)
+      redirect_to editors_path
+    end
   end
 
   private

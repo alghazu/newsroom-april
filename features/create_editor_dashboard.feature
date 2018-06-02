@@ -5,9 +5,9 @@ Feature: Create editor dashboard to see articles/comments to approve, decline or
 
 Background:
   Given the following users exist
-    | email               | password      |
-    | journalist@test.com | 12345678      |
-    | editor@test.com     | 12345678      |
+    | email               | role        |
+    | journalist@test.com | journalist  |
+    | editor@test.com     | editor      |
 
   And we have the following articles
     | headline               | user                  | published |
